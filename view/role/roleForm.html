@@ -1,0 +1,59 @@
+<nav class="content-title">
+    <a href="/">
+        <i class="fa-solid fa-house"></i>
+        Trang chủ website
+    </a>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Cấu hình người dùng
+    </span>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Danh sách quyền
+    </span>
+</nav>
+<div class="content-primary">
+    <div class="nav-control">
+        <!-- <input type="text" class="form-control" placeholder="Tìm kiếm"> -->
+        <a href="#!role/add" class="btn btn--primary fs-5">
+            <i class="fa-solid fa-plus"></i>
+            Thêm mới
+        </a>
+        <!-- <a class="header_account">
+            Thoát
+            <i class="fa-solid fa-caret-down"></i>
+        </a> -->
+    </div>
+    <!-- <div class="content-table"> -->
+    <div class="container">
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover tabel-condensed">
+                    <thead>
+                        <th>Loại người dùng</th>
+                        <th>Danh sách quyền</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="value in roleList">
+                            <td>
+                                {{value.roleName}}
+                            </td>
+                            <td style="width:60%;">
+                                <p style="word-break: break-word;">
+                                    {{value.permissionName.join(' | ')}}
+                                </p>
+                            </td>
+                            <td>
+                                <a href="#!role/edit" class="btn-icon" ng-click="selectById(value.roleId)"><i
+                                        class="fa-solid fa-pen-to-square"></i></a>
+                                <button class="btn-icon" ng-click="removeById(value.roleId)"><i
+                                        class="fa-solid fa-xmark"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

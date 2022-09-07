@@ -1,0 +1,91 @@
+<nav class="content-title">
+    <a href="/">
+        <i class="fa-solid fa-house"></i>
+        Trang chủ website
+    </a>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Quản lý đơn hàng
+    </span>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Đơn hàng
+    </span>
+</nav>
+<div class="content-primary">
+    <div class="nav-control">
+        <input type="text" class="form-control" style="width: 30rem;" ng-model="keyBySearch" placeholder="Nhập mã đơn hàng">
+        <a ng-click="searchByCode()" class="btn btn--primary fs-5">
+            Tìm kiếm
+        </a>
+        <a href="#!order/add" class="btn btn--primary">
+            <i class="fa-solid fa-plus"></i>
+            Thêm mới
+        </a>
+    </div>
+    <div class="container">  
+        <div class="row">  
+            <div class="table-responsive"> 
+                <table class ="table table-striped table-bordered table-hover tabel-condensed">
+                    <thead>
+                        <!-- <th><input type="checkbox"></th> -->
+                        <th>Mã hoá đơn</th>
+                        <th>Ngày tạo</th>
+                        <th>Mã nhân viên</th>
+                        <th>Nhân viên tạo</th>
+                        <th>Tổng tiền</th>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="value in orderList">
+                            <!-- <td>
+                                <input type="checkbox">
+                            </td> -->
+                            <td>
+                                {{value.orderCode}}
+                            </td>
+                            <td>
+                                {{value.order_date | date:'dd-MM-yyyy'}}
+                            </td>
+                            <td>
+                                {{value.userCode}}
+                            </td>
+                            <td>
+                                {{value.name}}
+                            </td>
+                            <td>
+                                {{value.total_money | currency:"":0}}
+                            </td>
+                            <td>
+                                <a href="#!order/edit" class="btn-icon" ng-click="selectOrder(value.orderCode,value.id)"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <button  class="btn-icon" ng-click="removeById(value.id)"><i class="fa-solid fa-xmark"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>  
+                        <tr>  
+                            <td align="center" colspan="7">
+                                <span class="form-group pull-left page-size form-inline">  
+                                    <select id="ddlPageSize" class="form-control control-color"  
+                                            ng-model="pageSizeSelected"  
+                                            ng-change="changePageSize()">  
+                                        <option value="5">5</option>  
+                                        <option value="10">10</option>  
+                                        <option value="25">25</option>  
+                                        <option value="50">50</option>  
+                                    </select>  
+                                </span>  
+                                <div class="pull-right">  
+                                    <pagination total-items="totalCount" ng-change="pageChanged()" items-per-page="pageSizeSelected" direction-links="true" ng-model="pageIndex" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"
+                                    previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></pagination>  
+                                    <a class="btn btn-primary">Trang {{pageIndex}} / {{numPages}}</a>
+                                    
+                                </div>  
+                            </td>  
+                        </tr>  
+                    </tfoot>  
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

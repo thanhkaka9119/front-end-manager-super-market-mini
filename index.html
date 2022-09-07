@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="storeApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./access/libs/fontawesome-free-6.1.2-web/css/all.min.css">
+    <link rel="stylesheet" href="./access/libs/pagination/bootstrap.min.css">
+    <link rel="stylesheet" href="./access/libs/toastr/toastr.min.css">
+    <!-- <link rel="stylesheet" href="./access/libs/angularJs/ui-grid.css"> -->
+    <link rel="stylesheet" href="./access/css/base.css">
+    <link rel="stylesheet" href="./access/css/style.css">
+    <script lang="javascript" src="./access/libs/angularJs/angularJs.js"></script>
+    <script lang="javascript" src="./access/libs/angularJs/angular-route.js"></script>
+    <script lang="javascript" src="./access/libs/angularJs/angular-cookies.js"></script>
+    
+    <!-- <script lang="javascript" src="./access/libs/angularJs/ui-grid.js"></script> -->
+    <script src="./app/appHome.js"></script>
+    <script src="./app/productController.js"></script>
+    <script src="./app/userController.js"></script>
+    <script src="./app/categoryController.js"></script>
+    <script src="./app/roleController.js"></script>
+    <script src="./app/orderController.js"></script>
+    <title>Trang chủ</title>
+</head>
+<!-- ng-view -->
+
+<body ng-controller="homeController">
+    <header ng-include="'view/header.html'"></header>
+    <div class="main">
+        <div ng-include="'view/menu.html'" class="menu"></div>
+        <div class="content" ng-view></div>
+    </div>
+    <div class="modal" ng-show="isFormLogin">
+        <div class="login">
+            <div class="form-login">
+                <h3>ĐĂNG NHẬP HỆ THỐNG</h3>
+                <form style="margin-bottom: 2rem;">
+                    <div class="form-group">
+                        <label for="userName" class="form-label">Tên đăng nhập</label>
+                        <input type="text" name="userName" class="form-control" placeholder="tên đăng nhập"
+                            ng-model="usernameLogin">
+                        <span>
+                            <span class="form-mess"></span>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="form-label">Mật khẩu</label>
+                        <input type="text" name="password" class="form-control" placeholder="mật khẩu" ng-model="passwordLogin">
+                        <span>
+                            <span class="form-mess"></span>
+                        </span>
+                    </div>
+                </form>
+                <a class="btn btn--primary" ng-click="login()">Đăng nhập</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./access/libs/toastr/jquery.js"></script>
+    <script lang="javascript" src="./access/libs/toastr/toastr.min.js"></script>
+    <script src="./access/libs/pagination/ui-bootstrap-tpls-0.13.4.min.js"></script>
+    <script src="./access/js/custom.js"></script>
+    <!-- <script src="./access/libs/bootstrap-5.2.0-dist/js/bootstrap.min.js"></script> -->
+</body>
+
+</html>

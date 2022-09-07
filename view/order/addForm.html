@@ -1,0 +1,96 @@
+<nav class="content-title">
+    <a href="/">
+        <i class="fa-solid fa-house"></i>
+        Trang chủ website
+    </a>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Quản lý đơn hàng
+    </span>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <a href="#!order">
+        Đơn hàng
+    </a>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Thêm
+    </span>
+</nav>
+<div class="content-primary">
+    <div class="info-share">
+        <h3>Thông tin chung</h3>
+        <div class="container">  
+            <div class="row">  
+                <div class="table-responsive"> 
+                    <table class ="table table-striped table-bordered table-hover tabel-condensed">
+                        <thead>
+                            <th>Mã sản phẩm</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá bán</th>
+                            <th>Số lượng mua</th>
+                            <th></th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="(index,value) in cartList track by $index">
+                                <td>{{value.productCode}}</td>
+                                <td>{{value.productName}}</td>
+                                <td>{{value.price| currency:"":0}}</td>
+                                <td>{{value.quantityPurchased}}</td> 
+                                <td>
+                                    <button  class="btn-icon" ng-click="removeItem(index)"><i class="fa-solid fa-xmark"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td align="right" colspan="5">
+                                    Tổng tiền:  {{totalMoney | currency:"":0}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" colspan="5">
+                                    <a ng-click="createOrder()" type="submit" class="btn btn--primary">Tạo hoá đơn</a>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <form class="form-input" name="orderForm" novalidate>
+            <div class="form-group">
+                <label for="code" class="form-label">Mã hoá đơn</label>
+                <input type="text" name="code" class="form-control" placeholder="vd: OD21" ng-model="code">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="productList" class="form-label">Danh sách Sản phẩm</label>
+                <select class="form-control" ng-model="filterCondition.product">
+                    <option ng-selected="{{product.value == filterCondition.product}}" ng-repeat="(index,product) in productList" value="{{index}}">{{product.name}}</option>
+                </select>
+                <span ng-show="orderForm.$submitted || orderForm.productList.$dirty">
+                    <span class="form-mess" ng-show="orderForm.productList.$error.required">Không được để trống!</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="price" class="form-label">Giá bán</label>
+                <p class="form-control">{{productList[filterCondition.product].price}}</p>
+            </div>
+            <div class="form-group">
+                <label for="Amount" class="form-label">Trong kho còn</label>
+                <p class="form-control">{{productList[filterCondition.product].quantity}}</p>
+            </div>
+            <div class="form-group">
+                <label for="quantity" class="form-label">Số lượng mua</label>
+                <input type="text" name="quantity" class="form-control" placeholder="vd: 23" ng-model="quantity">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <a ng-click="add()" type="submit" class="btn btn--primary">Thêm</a>
+            <a href="#!order" class="btn btn--cancel">Thoát</a>
+        </form>
+    </div>
+</div>

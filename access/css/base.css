@@ -1,0 +1,221 @@
+:root {
+    --black-color: #222222;
+    --while-color: #fff;
+    --text-active-color: #6B92D1;
+    --text-color: #636363;
+    --background-color: #F5F5F5;
+    --text-background: #908F8F;
+    --border-color: #ddd;
+}
+
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/* header */
+.header{
+    display: flex;
+    width: 100%;
+    background-color: var(--black-color);
+    color: var(--text-color);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.header_list{
+    list-style: none;
+    flex-grow: 1;
+}
+.header_list_primary{
+    width: 22rem;
+}
+.header_list_primary a{
+    padding: 1.5rem 0 1.5rem 6rem!important;
+}
+.header_list li{
+    display: inline-block;
+}
+.header_list li:not(:last-child){
+    border-right: 1px solid var(--text-color);
+}
+.header_list li a{
+    display: inline-block;
+    padding: 1.5rem 3rem;
+    text-decoration: none;
+    color: var(--text-background);
+}
+.header_list li a:hover{
+    color: var(--while-color);
+}
+.header_account{
+    padding: 1.5rem 3rem;
+    color: var(--text-background);
+    font-size: 1.4rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+/* end header */
+/* main */
+.main{
+    display: flex;
+}
+.content{
+    flex-grow: 1;
+}
+.content-primary{
+    font-size: 1.4rem;
+}
+.text-danger{
+    font-weight: bold;
+    color: #FF0000;
+}
+/* end main */
+/* menu */
+.menu{
+    background-color: var(--background-color);
+    box-shadow: 0 1px 1px rgb(189 189 189);
+    width: 22rem;
+    height: auto;
+    border-right: 1px solid var(--border-color);
+    transition: all .3s;
+}
+.menu-list{
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.menu-item{
+    list-style: none;
+}
+.menu-item .menu-item__link{
+    display: inline-block;
+    width: 100%;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    text-decoration: none;
+    color: var(--text-color);
+}
+.menu-item .menu-item__link:hover{
+    background-color: var(--while-color);
+    color: var(--text-active-color);
+}
+.menu-item--active .menu-item__link{
+    background-color: var(--while-color)!important;
+    color: var(--text-active-color)!important;
+    font-weight: bold!important;
+}
+/* menu child */
+.menu-child{
+    display: none;
+}
+.menu-child__item{
+    list-style: none;
+}
+.menu-item:hover .menu-child{
+    display: block;
+}
+/* end menu */
+/* form */
+.form-group{
+    border-bottom: 2px solid #ddd;
+    padding: .5rem 0 .5rem 0;
+    margin-bottom: .5rem;
+}
+.form-input{
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+}
+.form-label {
+    display: inline-block;
+    width: 20rem;
+    color: #1362B8;
+    font-weight: bold;
+}
+.form-control{
+    display: inline-block;
+    padding: .7rem 1rem .7rem 1rem;
+    outline: none;
+    border-radius: 4px;
+    font-size: 1.4rem;
+    border: 1px solid #E0E0E0;
+}
+.form-mess {
+    display: block;
+    margin-top: .5rem;
+    color: #F80000;
+    font-size: 1.2rem;
+}
+.form-input .form-control{
+    width: 40rem;
+}
+.form-img{
+    width: 10rem;
+    height: 10rem;
+}
+
+/* end form */
+/* button */
+.btn{
+    padding: .7rem 1rem;
+    border: none;
+    border-radius: 4px;
+    color: var(--while-color);
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+}
+.btn--primary{
+    background-color: #428BCA;
+}
+.btn--success{
+    background-color: #28A745;
+}
+.btn--cancel{
+    background-color: #DC3545;
+}
+.btn-icon{
+    border: none;
+    background-color: var(--while-color);
+    color: #ff0000;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.btn-icon:not(:last-child){
+    margin-right: 1rem;
+}
+/* end button */
+/* table */
+.info-list{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+    height: 10rem;
+}
+.info-list td,
+.info-list th{
+    border: 1px solid #ddd;
+    padding: 8px;
+    max-height: 5rem;
+}
+.info-list th{
+    position: sticky;
+    background-color: var(--background-color);
+    top: -.1rem;
+}
+/* end table */
+
+/* box notifications */
+.box-notification{
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    z-index: 3;
+}

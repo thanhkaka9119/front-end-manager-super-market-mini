@@ -1,0 +1,79 @@
+<nav class="content-title">
+    <a href="/">
+        <i class="fa-solid fa-house"></i>
+        Trang chủ website
+    </a>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Quản trị sản phẩm
+    </span>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <a href="#!product">
+        Sản phẩm
+    </a>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Thêm
+    </span>
+</nav>
+<div class="content-primary">
+    <div class="info-share">
+        <h3>Thông tin chung</h3>
+        <form class="form-input" name="productForm" novalidate>
+            <!-- <div class="form-group">
+                <label for="avatarFile" class="form-label">Ảnh đại diện</label>
+                <input id="avatar-file" type="file" name="avatarFile" class="form-control custom-avatar"
+                    accept="image/*">
+                <span class="form-mess"></span>
+            </div> -->
+            <div class="form-group">
+                <label for="code" class="form-label">Mã sản phẩm</label>
+                <input type="text" name="code" class="form-control" placeholder="vd: SP001" ng-model="code">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="name" class="form-label">Tên sản phẩm</label>
+                <input type="text" name="name" class="form-control" placeholder="vd: bánh quy" ng-model="name">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="importPrice" class="form-label">Giá nhập</label>
+                <input type="text" name="importPrice" class="form-control" placeholder="vd: 30000" ng-model="importPrice">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="price" class="form-label">Giá bán</label>
+                <input type="text" name="price" class="form-control" placeholder="vd: 80000" ng-model="price">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="quantity" class="form-label">Số lượng trong kho</label>
+                <input type="text" name="quantity" class="form-control" placeholder="vd: 80" ng-model="quantity">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="category" class="form-label">Loại sản phẩm</label>
+                <select class="form-control" name="category" ng-model="category" ng-options="item as item.name for item in categoryList" required>
+                    <!-- <option value="">-- chọn --</option>
+                    <option value="1">nhập khẩu</option>
+                    <option value="2">nội địa</option> -->
+                </select>
+                <span ng-show="productForm.$submitted || productForm.category.$dirty">
+                    <span class="form-mess" ng-show="productForm.category.$error.required">Không được để trống!</span>
+                </span>
+            </div>
+            <a ng-click="add()" type="submit" class="btn btn--primary">Thêm</a>
+            <a href="#!product" class="btn btn--cancel">Thoát</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+<nav class="content-title">
+    <a href="/">
+        <i class="fa-solid fa-house"></i>
+        Trang chủ website
+    </a>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Người dùng
+    </span>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <a href="#!user">
+        Quản lý người dùng
+    </a>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Thêm
+    </span>
+</nav>
+<div class="content-primary">
+    <div class="info-share">
+        <h3>Thông tin chung</h3>
+        <form class="form-input" name="personForm" novalidate>
+            <div class="form-group">
+                <label for="avatarFile" class="form-label">Ảnh đại diện</label>
+                <input id="avatar-file" type="file" name="avatarFile" class="form-control custom-avatar"
+                    accept="image/*" file-model = "myFile" required>
+                    <span ng-show="personForm.$submitted || personForm.avatarFile.$dirty">
+                        <span class="form-mess" ng-show="personForm.avatarFile.$error.required">Không được để trống!</span>
+                    </span>
+            </div>
+            <div class="form-group">
+                <label for="code" class="form-label">Mã người dùng</label>
+                <input type="text" name="code" class="form-control" placeholder="vd: U001" ng-model="code" required>
+                <span ng-show="personForm.$submitted || personForm.code.$dirty">
+                    <span class="form-mess" ng-show="personForm.code.$error.required">Không được để trống!</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="name" class="form-label">Họ và tên</label>
+                <input type="text" name="name" class="form-control" placeholder="vd: Mai văn thanh" ng-model="name">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="birthday" class="form-label">Ngày/Tháng/Năm sinh</label>
+                <input type="date" name="birthday" class="form-control custom-date"
+                    placeholder="vd: 01/11/1999" ng-model="birthday" required>
+                    <span ng-show="personForm.$submitted || personForm.birthday.$dirty">
+                        <span class="form-mess" ng-show="personForm.birthday.$error.required">Không được để trống!</span>
+                    </span>
+            </div>
+            <div class="form-group">
+                <label for="address" class="form-label">Địa chỉ</label>
+                <input type="text" name="address" class="form-control" placeholder="vd: phúc khoa" ng-model="address">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" placeholder="vd: thanh@gmail.com" ng-model="email">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="codeIdentification" class="form-label">Căn cước công dân</label>
+                <input type="text" name="codeIdentification" class="form-control"
+                    placeholder="vd: 03d2934324322" ng-model="identifier">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="username" class="form-label">Tên đăng nhập</label>
+                <input type="text" name="username" class="form-control"
+                    placeholder="vd: thanhkaka" ng-model="username">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Mật khẩu</label>
+                <input type="text" name="password" class="form-control"
+                    placeholder="vd: 03d2934324322" ng-model="password">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="role" class="form-label">Loại người dùng</label>
+                <!-- <select class="form-control" name="role" ng-model="role" ng-options="item as item.roleName for item in roleList"> 
+                </select> -->
+                <div class="role-control">
+                    <div ng-repeat="role in roleList">
+                        <input type="checkbox" value="role.roleId" ng-model="active" ng-change="change(role.roleId, active)"> {{role.roleName}}
+                    </div>
+                </div>
+                <!-- <span>
+                    <span class="form-mess"></span>
+                </span> -->
+            </div>
+            <a class="btn btn--primary" ng-click="insertUser()">Lưu</a>
+            <a href="#!user" class="btn btn--cancel">Thoát</a>
+        </form>
+    </div>
+</div>

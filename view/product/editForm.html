@@ -1,0 +1,97 @@
+<nav class="content-title">
+    <a href="/">
+        <i class="fa-solid fa-house"></i>
+        Trang chủ website
+    </a>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Quản trị sản phẩm
+    </span>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <a href="#!product">
+        Sản phẩm
+    </a>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Sửa
+    </span>
+</nav>
+<div class="content-primary">
+    <div class="info-share">
+        <h3>Thông tin chung</h3>
+        <form class="form-input" name="personForm" novalidate>
+            <!-- <div class="form-group">
+                <label for="avatarFile" class="form-label">Hình ảnh</label>
+                <img src="./access/img/149794865_1981029745379701_6671841922847935554_n.jpg" alt="avatar" class="form-img">
+            </div>
+            <div class="form-group">
+                <label for="avatarFile" class="form-label">Ảnh đại diện</label>
+                <input id="avatar-file" type="file" name="avatarFile" class="form-control custom-avatar"
+                    accept="image/*">
+                <span class="form-mess"></span>
+            </div> -->
+            <div class="form-group">
+                <label for="code" class="form-label">Mã hàng hoá</label>
+                <p class="form-control">{{code}}</p>
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="name" class="form-label">Tên hàng hoá</label>
+                <input type="text" name="name" class="form-control" placeholder="vd: Mai văn thanh" ng-model="name">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="importPrice" class="form-label">Giá nhập</label>
+                <input type="text" name="importPrice" class="form-control" placeholder="vd: 30000" ng-model="importPrice">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="price" class="form-label">Giá bán</label>
+                <input type="text" name="price" class="form-control" placeholder="vd: 80000" ng-model="price">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="quantity" class="form-label">Số lượng</label>
+                <input type="text" name="quantity" class="form-control" placeholder="vd: 80" ng-model="quantity">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="categoryCode" class="form-label">Mã loại sản phẩm</label>
+                <p class="form-control">{{categoryCode}}</p>
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="categoryName" class="form-label">Tên loại sản phẩm</label>
+                <p class="form-control">{{categoryName}}</p>
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="category" class="form-label">Loại sản phẩm</label>
+                <select class="form-control" name="category" ng-model="category" ng-options="item.name for item in categoryList track by item.id">
+                    <!-- <option value="">-- chọn --</option>
+                    <option value="nhập khẩu">nhập khẩu</option>
+                    <option value="nội địa">nội địa</option> -->
+                </select>
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <a type="submit" class="btn btn--primary" ng-click="editById(id)">Sửa</a>
+            <a href="#!product" class="btn btn--cancel">Thoát</a>
+        </form>
+    </div>
+</div>

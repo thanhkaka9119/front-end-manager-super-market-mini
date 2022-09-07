@@ -1,0 +1,42 @@
+<nav class="content-title">
+    <a href="/">
+        <i class="fa-solid fa-house"></i>
+        Trang chủ website
+    </a>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Cấu hình người dùng
+    </span>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <a href="#!role">
+        Danh sách quyền
+    </a>
+    <span><i class="fa-solid fa-angle-right"></i></span>
+    <span class="content-title__text">
+        Thêm
+    </span>
+</nav>
+<div class="content-primary">
+    <div class="info-share">
+        <h3>Thông tin chung</h3>
+        <form class="form-input" name="categoryForm" novalidate>
+            <div class="form-group">
+                <label for="name" class="form-label">Tên loại người dùng</label>
+                <input type="text" name="name" class="form-control" placeholder="" ng-model="name">
+                <span>
+                    <span class="form-mess"></span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="role" class="form-label">Quyền hạn</label>
+                <div class="role-control">
+                    <div ng-repeat="permission in permissionList">
+                        <input type="checkbox" value="permission.id" ng-model="active" ng-change="change(permission.id, active)"> {{permission.permissionKey}}
+                    </div>
+                </div>
+            </div>
+            <a href="#!role" ng-click="add()" type="submit" class="btn btn--primary">Thêm</a>
+            <a href="#!role" class="btn btn--cancel">Thoát</a>
+        </form>
+    </div>
+</div>
